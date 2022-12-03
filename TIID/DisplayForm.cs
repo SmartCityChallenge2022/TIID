@@ -32,7 +32,7 @@ namespace TIID
             watcher.Start();
             
             
-            map.MapProvider = GMapProviders.GoogleMap;
+            map.MapProvider = GMapProviders.UMPMap;
             
             map.MinZoom = 5;
             map.MaxZoom = 100;
