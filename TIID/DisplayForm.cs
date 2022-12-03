@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace TIID
 {
@@ -18,7 +20,7 @@ namespace TIID
         public double currentLat;
         public double currentLon;
         private GeoCoordinateWatcher watcher;
-        int counter = 0;
+        private int counter = 0;
         public DisplayForm()
         {
             InitializeComponent();
@@ -29,21 +31,23 @@ namespace TIID
             watcher = new GeoCoordinateWatcher();
             watcher.Start();
             
-            GetCurrentLocation();
+            
             map.MapProvider = GMapProviders.GoogleMap;
             
             map.MinZoom = 5;
             map.MaxZoom = 100;
             map.Zoom = 15;
-            map.Position = new GMap.NET.PointLatLng(43.5145096, 16.4229069);
+            map.Position = new GMap.NET.PointLatLng(0, 0);
 
-           
+
+            watcher.StatusChanged += GetCurrentLocation;
 
         }
-        private void GetCurrentLocation()
+        private void GetCurrentLocation(object sender, GeoPositionStatusChangedEventArgs e)
         {
             try
             {
+                Console.WriteLine(watcher.Status);
                 if(watcher.Status == GeoPositionStatus.Ready)
                 {
                     if (watcher.Position.Location.IsUnknown)
@@ -55,6 +59,7 @@ namespace TIID
                     {
                         currentLat = watcher.Position.Location.Latitude;
                         currentLon = watcher.Position.Location.Longitude;
+                        map.Position = new GMap.NET.PointLatLng(currentLat, currentLon);
                     }
                 }
             }
@@ -75,6 +80,7 @@ namespace TIID
             if (counter < imageList1.Images.Count-1)
                 counter++;
             else counter = 0;
+            UpdateWeather();
         }
         private void UpdateTime()
         {
@@ -84,6 +90,11 @@ namespace TIID
         private void timer2_Tick(object sender, EventArgs e)
         {
             UpdateTime();
+        }
+        private void UpdateWeather()
+        {
+            var http = new HttpClient();
+
         }
     }
 }

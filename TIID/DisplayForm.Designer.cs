@@ -278,11 +278,11 @@
             // 
             this.txtTime.BackColor = System.Drawing.Color.AliceBlue;
             this.txtTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTime.ForeColor = System.Drawing.Color.Black;
             this.txtTime.Location = new System.Drawing.Point(12, 12);
             this.txtTime.Name = "txtTime";
-            this.txtTime.Size = new System.Drawing.Size(349, 31);
+            this.txtTime.Size = new System.Drawing.Size(349, 34);
             this.txtTime.TabIndex = 18;
             // 
             // DisplayForm
