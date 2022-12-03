@@ -40,15 +40,37 @@ namespace TIID
             map.Position = new GMap.NET.PointLatLng(0, 0);
 
 
-            watcher.StatusChanged += GetCurrentLocation;
+            watcher.StatusChanged += StatusChangedEvent;
+            watcher.PositionChanged += PositionChangedEvent;
 
         }
-        private void GetCurrentLocation(object sender, GeoPositionStatusChangedEventArgs e)
+        private void StatusChangedEvent(object sender, GeoPositionStatusChangedEventArgs e)
+        {
+            GetCurrentLocation();
+        }
+        private void PositionChangedEvent(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
+        {
+            GetCurrentLocation();
+        }
+
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
+            pictureBox1.Image = imageList1.Images[counter];
+            
+            if (counter < imageList1.Images.Count-1)
+                counter++;
+            else counter = 0;
+            UpdateWeather();
+        }
+
+        private void GetCurrentLocation()
         {
             try
             {
                 Console.WriteLine(watcher.Status);
-                if(watcher.Status == GeoPositionStatus.Ready)
+                if (watcher.Status == GeoPositionStatus.Ready)
                 {
                     if (watcher.Position.Location.IsUnknown)
                     {
@@ -65,22 +87,8 @@ namespace TIID
             }
             catch (Exception)
             {
-
                 throw;
             }
-            MessageBox.Show(currentLat.ToString() + " " + currentLon.ToString());
-        }
-        
-        
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            
-            pictureBox1.Image = imageList1.Images[counter];
-            
-            if (counter < imageList1.Images.Count-1)
-                counter++;
-            else counter = 0;
-            UpdateWeather();
         }
         private void UpdateTime()
         {
