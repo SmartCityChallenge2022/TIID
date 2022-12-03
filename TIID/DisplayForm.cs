@@ -18,6 +18,7 @@ namespace TIID
         public double currentLat;
         public double currentLon;
         private GeoCoordinateWatcher watcher;
+        int counter = 0;
         public DisplayForm()
         {
             InitializeComponent();
@@ -27,42 +28,52 @@ namespace TIID
         {
             watcher = new GeoCoordinateWatcher();
             watcher.Start();
-            //watcher.PositionChanged += GetCurrentLocation;
+            
             GetCurrentLocation();
-            //map.MapProvider = GMapProviders.GoogleMap;
+            map.MapProvider = GMapProviders.GoogleMap;
             
             map.MinZoom = 5;
             map.MaxZoom = 100;
-            map.Zoom = 10;
-            //map.Position = new GMap.NET.PointLatLng(currentLon, currentLat);
+            map.Zoom = 15;
+            map.Position = new GMap.NET.PointLatLng(43.5145096, 16.4229069);
+
            
 
         }
         private void GetCurrentLocation()
         {
-            /* try
-             {
-                 if(e.Status == GeoPositionStatus.Ready)
-                 {
-                     if (watcher.Position.Location.IsUnknown)
-                     {
-                         currentLat = 0;
-                         currentLon = 0;
-                     }
-                     else
-                     {
-                         currentLat = watcher.Position.Location.Latitude;
-                         currentLon = watcher.Position.Location.Longitude;
-                     }
-                 }
-             }
-             catch (Exception)
-             {
+            try
+            {
+                if(watcher.Status == GeoPositionStatus.Ready)
+                {
+                    if (watcher.Position.Location.IsUnknown)
+                    {
+                        currentLat = 0;
+                        currentLon = 0;
+                    }
+                    else
+                    {
+                        currentLat = watcher.Position.Location.Latitude;
+                        currentLon = watcher.Position.Location.Longitude;
+                    }
+                }
+            }
+            catch (Exception)
+            {
 
-                 throw;
-             }
-             MessageBox.Show(currentLat.ToString() + " " + currentLon.ToString());*/
-            MessageBox.Show(watcher.Position.Location.Longitude + " " + watcher.Position.Location.Latitude);
+                throw;
+            }
+            MessageBox.Show(currentLat.ToString() + " " + currentLon.ToString());
+        }
+        
+        
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+           
+            pictureBox1.Image = imageList1.Images[counter];
+            if (counter <= imageList1.Images.Count)
+                counter++;
+            else counter = 0;
         }
     }
 }
