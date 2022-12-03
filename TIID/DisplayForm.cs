@@ -69,12 +69,21 @@ namespace TIID
         
         private void timer1_Tick(object sender, EventArgs e)
         {
-           
+            
             pictureBox1.Image = imageList1.Images[counter];
             
             if (counter < imageList1.Images.Count-1)
                 counter++;
             else counter = 0;
+        }
+        private void UpdateTime()
+        {
+            txtTime.Text = DateTime.Now.ToString();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            UpdateTime();
         }
     }
 }
