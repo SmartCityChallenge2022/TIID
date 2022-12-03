@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace TIID
 {
@@ -99,10 +100,30 @@ namespace TIID
         {
             UpdateTime();
         }
-        private void UpdateWeather()
+
+        private async void UpdateWeather()
         {
             var http = new HttpClient();
 
+            var url = "https://api.openweathermap.org/data/2.5/weather?lat=" + currentLat +"&lon=" + currentLon + "&appid=e63e795d72e0ee742c4af3d081bc4c5d";
+
+            http.DefaultRequestHeaders.Add(
+                "User-Agent",
+                "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 " +
+                     "(KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36");
+
+            var response = await http.GetAsync(url);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                //var weather = JsonConvert.DeserializeObject<WeatherNet.Model.CurrentWeatherResult>(json);
+                //MessageBox.Show(weather.Temp.ToString() + " " +weather.Description);
+                //MessageBox.Show(response.StatusCode.ToString());
+
+                
+                
+            }
         }
     }
 }
