@@ -71,7 +71,8 @@ namespace TIID
         {
            
             pictureBox1.Image = imageList1.Images[counter];
-            if (counter <= imageList1.Images.Count)
+            
+            if (counter < imageList1.Images.Count-1)
                 counter++;
             else counter = 0;
         }
