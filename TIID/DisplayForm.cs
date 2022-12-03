@@ -181,7 +181,7 @@ namespace TIID
 
             //MessageBox.Show(points[0].ToString());
 
-            var route = GoogleMapProvider.Instance.GetRoute(points[0], points[1], true, false, 0);
+            var route = GoogleMapProvider.Instance.GetRoute(points[0], points[1], true, false, 14);
             var r = new GMapRoute(route.Points, "Autobusna linija 11");
             var routes = new GMapOverlay("routes");
 
