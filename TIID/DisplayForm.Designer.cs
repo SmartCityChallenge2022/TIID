@@ -190,6 +190,8 @@
             // 
             this.dgvStanice.AllowUserToAddRows = false;
             this.dgvStanice.AllowUserToDeleteRows = false;
+            this.dgvStanice.AllowUserToResizeColumns = false;
+            this.dgvStanice.AllowUserToResizeRows = false;
             this.dgvStanice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStanice.Location = new System.Drawing.Point(3, 64);
             this.dgvStanice.Name = "dgvStanice";

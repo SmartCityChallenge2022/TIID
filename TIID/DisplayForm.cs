@@ -14,6 +14,8 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using Newtonsoft.Json;
 using static TIID.WeatherApiClass;
+using GMap.NET;
+using GMap.NET.WindowsForms;
 
 namespace TIID
 {
@@ -24,6 +26,7 @@ namespace TIID
         private GeoCoordinateWatcher watcher;
         private int counter = 0;
         private List<Stanica> listaStanica;
+        private List<PointLatLng> points;
         public DisplayForm()
         {
             InitializeComponent();
@@ -46,6 +49,10 @@ namespace TIID
 
             watcher.StatusChanged += StatusChangedEvent;
             watcher.PositionChanged += PositionChangedEvent;
+
+            FindRoute();
+
+            
 
         }
 
@@ -71,9 +78,16 @@ namespace TIID
             listaStanica.Add(new Stanica("114. Brigade", 30));
             dgvStanice.DataSource = null;
             dgvStanice.DataSource = listaStanica;
-            foreach(Stanica st in listaStanica)
+            int i = 0;
+
+            foreach (DataGridViewRow row in dgvStanice.Rows)
             {
-                MessageBox.Show(st.NazivStanice + " " + st.VrijemeDoIduce);
+                if (i == 3)
+                {
+                    row.DefaultCellStyle.BackColor = Color.Aquamarine;
+                    break;
+                }
+                else i++;
             }
         }
 
@@ -157,6 +171,20 @@ namespace TIID
 
             }
 
+        }
+        private void FindRoute()
+        {
+
+            points = new List<PointLatLng>();
+            points.Add(new PointLatLng(43.5139, 16.4558));
+            points.Add(new PointLatLng(43.520677, 16.466721));
+
+            var route = GoogleMapProvider.Instance.GetRoute(points[0], points[1], false, false, 0);
+            var r = new GMapRoute(route.Points, "Autobusna linija 11");
+            var routes = new GMapOverlay("Linije");
+
+            routes.Routes.Add(r);
+            map.Overlays.Add(routes);
         }
     }
 }
