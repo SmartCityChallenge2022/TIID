@@ -47,8 +47,6 @@
             this.sqLiteCommand2 = new System.Data.SQLite.SQLiteCommand();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dolazak = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -193,9 +191,6 @@
             this.dgvStanice.AllowUserToAddRows = false;
             this.dgvStanice.AllowUserToDeleteRows = false;
             this.dgvStanice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStanice.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Dolazak});
             this.dgvStanice.Location = new System.Drawing.Point(3, 64);
             this.dgvStanice.Name = "dgvStanice";
             this.dgvStanice.ReadOnly = true;
@@ -228,23 +223,6 @@
             this.label2.Size = new System.Drawing.Size(249, 87);
             this.label2.TabIndex = 21;
             this.label2.Text = "SPINUT-KAMPUS-PUJANKE-RAVNE NJIVE";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Naziv stanice:";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Dolazak
-            // 
-            this.Dolazak.HeaderText = "Dolazak za:";
-            this.Dolazak.MinimumWidth = 6;
-            this.Dolazak.Name = "Dolazak";
-            this.Dolazak.ReadOnly = true;
-            this.Dolazak.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dolazak.Width = 80;
             // 
             // DisplayForm
             // 
@@ -294,8 +272,6 @@
         private System.Data.SQLite.SQLiteCommand sqLiteCommand2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dolazak;
     }
 }
 

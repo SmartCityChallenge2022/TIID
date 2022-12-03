@@ -23,6 +23,7 @@ namespace TIID
         public double currentLon;
         private GeoCoordinateWatcher watcher;
         private int counter = 0;
+        private List<Stanica> listaStanica;
         public DisplayForm()
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace TIID
 
         private void DisplayForm_Load(object sender, EventArgs e)
         {
+            FIllStanicaList();
             watcher = new GeoCoordinateWatcher();
             watcher.Start();
 
@@ -46,6 +48,35 @@ namespace TIID
             watcher.PositionChanged += PositionChangedEvent;
 
         }
+
+        private void FIllStanicaList()
+        {
+            listaStanica = new List<Stanica>();
+            listaStanica.Add(new Stanica("Spinut", -5));
+            listaStanica.Add(new Stanica("Bakotićeva", -3));
+            listaStanica.Add(new Stanica("Sedam Kaštela", -2));
+            listaStanica.Add(new Stanica("Hrv. Mornarice", 0));
+            listaStanica.Add(new Stanica("Dom. rata", 2));
+            listaStanica.Add(new Stanica("Livanjska", 4));
+            listaStanica.Add(new Stanica("Zagrebačka", 5));
+            listaStanica.Add(new Stanica("Trajektna luka", 7));
+            listaStanica.Add(new Stanica("Pojišan", 9));
+            listaStanica.Add(new Stanica("Poljička", 11));
+            listaStanica.Add(new Stanica("Bruna Bušića", 14));
+            listaStanica.Add(new Stanica("Matice hrvatske", 16));
+            listaStanica.Add(new Stanica("Velebitska", 19));
+            listaStanica.Add(new Stanica("Vukovarska", 23));
+            listaStanica.Add(new Stanica("Pujanke", 25));
+            listaStanica.Add(new Stanica("Zagorski put", 27));
+            listaStanica.Add(new Stanica("114. Brigade", 30));
+            dgvStanice.DataSource = null;
+            dgvStanice.DataSource = listaStanica;
+            foreach(Stanica st in listaStanica)
+            {
+                MessageBox.Show(st.NazivStanice + " " + st.VrijemeDoIduce);
+            }
+        }
+
         private void StatusChangedEvent(object sender, GeoPositionStatusChangedEventArgs e)
         {
             GetCurrentLocation();
