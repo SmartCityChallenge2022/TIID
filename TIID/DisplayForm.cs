@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace TIID
 {
-    public partial class Form1 : Form
+    public partial class DisplayForm : Form
     {
-        public Form1()
+        public DisplayForm()
         {
             InitializeComponent();
+        }
+
+        private void DisplayForm_Load(object sender, EventArgs e)
+        {
+            StringBuilder lokacija = new StringBuilder();
+            lokacija.Append("http://google.com/maps?q=");
+            string trenutnaLokacija = "";
+
         }
     }
 }
