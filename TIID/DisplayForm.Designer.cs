@@ -37,26 +37,20 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtPrethodna = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtSljedeca = new System.Windows.Forms.TextBox();
-            this.txtBrzina = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmbOdaberi = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtDolazak = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
             this.lblTime = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.txtTime = new System.Windows.Forms.TextBox();
+            this.dgvStanice = new System.Windows.Forms.DataGridView();
+            this.Dolazak = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStanice)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -140,101 +134,6 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(-2, 183);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 25);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Prehodna stanica:";
-            // 
-            // txtPrethodna
-            // 
-            this.txtPrethodna.Enabled = false;
-            this.txtPrethodna.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrethodna.Location = new System.Drawing.Point(188, 178);
-            this.txtPrethodna.Name = "txtPrethodna";
-            this.txtPrethodna.Size = new System.Drawing.Size(166, 30);
-            this.txtPrethodna.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(-2, 223);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 25);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Sljedeća stanica:";
-            // 
-            // txtSljedeca
-            // 
-            this.txtSljedeca.Enabled = false;
-            this.txtSljedeca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSljedeca.Location = new System.Drawing.Point(188, 218);
-            this.txtSljedeca.Name = "txtSljedeca";
-            this.txtSljedeca.Size = new System.Drawing.Size(166, 30);
-            this.txtSljedeca.TabIndex = 8;
-            // 
-            // txtBrzina
-            // 
-            this.txtBrzina.Enabled = false;
-            this.txtBrzina.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBrzina.Location = new System.Drawing.Point(188, 257);
-            this.txtBrzina.Name = "txtBrzina";
-            this.txtBrzina.Size = new System.Drawing.Size(166, 30);
-            this.txtBrzina.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(-2, 262);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 25);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Trenutna brzina:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(4, 352);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(155, 25);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Odaberi stanicu:";
-            // 
-            // cmbOdaberi
-            // 
-            this.cmbOdaberi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbOdaberi.FormattingEnabled = true;
-            this.cmbOdaberi.Location = new System.Drawing.Point(188, 344);
-            this.cmbOdaberi.Name = "cmbOdaberi";
-            this.cmbOdaberi.Size = new System.Drawing.Size(166, 33);
-            this.cmbOdaberi.TabIndex = 12;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(4, 396);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 25);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Dolazak za:";
-            // 
-            // txtDolazak
-            // 
-            this.txtDolazak.Enabled = false;
-            this.txtDolazak.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDolazak.Location = new System.Drawing.Point(188, 393);
-            this.txtDolazak.Name = "txtDolazak";
-            this.txtDolazak.Size = new System.Drawing.Size(166, 30);
-            this.txtDolazak.TabIndex = 14;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -285,26 +184,50 @@
             this.txtTime.Size = new System.Drawing.Size(349, 34);
             this.txtTime.TabIndex = 18;
             // 
+            // dgvStanice
+            // 
+            this.dgvStanice.AllowUserToAddRows = false;
+            this.dgvStanice.AllowUserToDeleteRows = false;
+            this.dgvStanice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStanice.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Dolazak,
+            this.Column1});
+            this.dgvStanice.Location = new System.Drawing.Point(3, 64);
+            this.dgvStanice.Name = "dgvStanice";
+            this.dgvStanice.ReadOnly = true;
+            this.dgvStanice.RowHeadersWidth = 51;
+            this.dgvStanice.RowTemplate.Height = 24;
+            this.dgvStanice.Size = new System.Drawing.Size(358, 417);
+            this.dgvStanice.TabIndex = 19;
+            // 
+            // Dolazak
+            // 
+            this.Dolazak.HeaderText = "Dolazak za:";
+            this.Dolazak.MinimumWidth = 6;
+            this.Dolazak.Name = "Dolazak";
+            this.Dolazak.ReadOnly = true;
+            this.Dolazak.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Dolazak.Width = 80;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Naziv stanice:";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // DisplayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(1006, 721);
+            this.Controls.Add(this.dgvStanice);
             this.Controls.Add(this.txtTime);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtDolazak);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.cmbOdaberi);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtBrzina);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtSljedeca);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtPrethodna);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -315,6 +238,7 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStanice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,22 +253,15 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtPrethodna;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtSljedeca;
-        private System.Windows.Forms.TextBox txtBrzina;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cmbOdaberi;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtDolazak;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox1;
         private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.TextBox txtTime;
+        private System.Windows.Forms.DataGridView dgvStanice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dolazak;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
 

@@ -31,10 +31,10 @@ namespace TIID
         {
             watcher = new GeoCoordinateWatcher();
             watcher.Start();
-            
-            
+
+
             map.MapProvider = GMapProviders.UMPMap;
-            
+
             map.MinZoom = 5;
             map.MaxZoom = 100;
             map.Zoom = 15;
@@ -57,10 +57,10 @@ namespace TIID
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
+
             pictureBox1.Image = imageList1.Images[counter];
-            
-            if (counter < imageList1.Images.Count-1)
+
+            if (counter < imageList1.Images.Count - 1)
                 counter++;
             else counter = 0;
             UpdateWeather();
@@ -105,7 +105,7 @@ namespace TIID
         {
             var http = new HttpClient();
 
-            var url = "https://api.openweathermap.org/data/2.5/weather?lat=" + currentLat +"&lon=" + currentLon + "&appid=e63e795d72e0ee742c4af3d081bc4c5d";
+            var url = "https://api.openweathermap.org/data/2.5/weather?lat=" + currentLat + "&lon=" + currentLon + "&appid=e63e795d72e0ee742c4af3d081bc4c5d";
 
             http.DefaultRequestHeaders.Add(
                 "User-Agent",
@@ -117,13 +117,11 @@ namespace TIID
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();
-                //var weather = JsonConvert.DeserializeObject<WeatherNet.Model.CurrentWeatherResult>(json);
-                //MessageBox.Show(weather.Temp.ToString() + " " +weather.Description);
-                //MessageBox.Show(response.StatusCode.ToString());
+                var weather = JsonConvert.DeserializeObject<WeatherApiClass>(json);
+                MessageBox.Show(json.Split(':')[0].ToString());
 
-                
-                
             }
+        
         }
     }
 }
