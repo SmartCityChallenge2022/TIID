@@ -38,14 +38,17 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtVrijeme = new System.Windows.Forms.TextBox();
             this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
             this.lblTime = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.txtTime = new System.Windows.Forms.TextBox();
             this.dgvStanice = new System.Windows.Forms.DataGridView();
-            this.Dolazak = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sqLiteCommand2 = new System.Data.SQLite.SQLiteCommand();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dolazak = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -144,16 +147,17 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "Vremenski uvjeti:";
             // 
-            // textBox1
+            // txtVrijeme
             // 
-            this.textBox1.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(648, 104);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(156, 30);
-            this.textBox1.TabIndex = 16;
+            this.txtVrijeme.BackColor = System.Drawing.Color.AliceBlue;
+            this.txtVrijeme.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtVrijeme.Enabled = false;
+            this.txtVrijeme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVrijeme.Location = new System.Drawing.Point(630, 92);
+            this.txtVrijeme.Multiline = true;
+            this.txtVrijeme.Name = "txtVrijeme";
+            this.txtVrijeme.Size = new System.Drawing.Size(208, 80);
+            this.txtVrijeme.TabIndex = 16;
             // 
             // sqLiteCommand1
             // 
@@ -177,11 +181,11 @@
             // 
             this.txtTime.BackColor = System.Drawing.Color.AliceBlue;
             this.txtTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTime.ForeColor = System.Drawing.Color.Black;
             this.txtTime.Location = new System.Drawing.Point(12, 12);
             this.txtTime.Name = "txtTime";
-            this.txtTime.Size = new System.Drawing.Size(349, 34);
+            this.txtTime.Size = new System.Drawing.Size(349, 27);
             this.txtTime.TabIndex = 18;
             // 
             // dgvStanice
@@ -190,8 +194,8 @@
             this.dgvStanice.AllowUserToDeleteRows = false;
             this.dgvStanice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStanice.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Dolazak,
-            this.Column1});
+            this.Column1,
+            this.Dolazak});
             this.dgvStanice.Location = new System.Drawing.Point(3, 64);
             this.dgvStanice.Name = "dgvStanice";
             this.dgvStanice.ReadOnly = true;
@@ -199,6 +203,39 @@
             this.dgvStanice.RowTemplate.Height = 24;
             this.dgvStanice.Size = new System.Drawing.Size(358, 417);
             this.dgvStanice.TabIndex = 19;
+            // 
+            // sqLiteCommand2
+            // 
+            this.sqLiteCommand2.CommandText = null;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(367, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(220, 29);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Autobusna linija 11:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(367, 47);
+            this.label2.MaximumSize = new System.Drawing.Size(255, 100);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(249, 87);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "SPINUT-KAMPUS-PUJANKE-RAVNE NJIVE";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Naziv stanice:";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // Dolazak
             // 
@@ -209,24 +246,18 @@
             this.Dolazak.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Dolazak.Width = 80;
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Naziv stanice:";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
             // DisplayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(1006, 721);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvStanice);
             this.Controls.Add(this.txtTime);
             this.Controls.Add(this.lblTime);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtVrijeme);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel2);
@@ -254,14 +285,17 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtVrijeme;
         private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.TextBox txtTime;
         private System.Windows.Forms.DataGridView dgvStanice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dolazak;
+        private System.Data.SQLite.SQLiteCommand sqLiteCommand2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dolazak;
     }
 }
 

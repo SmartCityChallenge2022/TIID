@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.Net.Http;
 using Newtonsoft.Json;
+using static TIID.WeatherApiClass;
 
 namespace TIID
 {
@@ -117,11 +118,14 @@ namespace TIID
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();
-                var weather = JsonConvert.DeserializeObject<WeatherApiClass>(json);
-                MessageBox.Show(json.Split(':')[0].ToString());
+                Root weather = JsonConvert.DeserializeObject<Root>(json);
+                txtVrijeme.Text = ((int)(weather.main.temp - 273.15)).ToString() + "°C - " + weather.weather.First().description + 
+                    " - Brzina vjetra: " + Math.Round(weather.wind.speed*3.6 , 2) +" Km/h";
+
+
 
             }
-        
+
         }
     }
 }
