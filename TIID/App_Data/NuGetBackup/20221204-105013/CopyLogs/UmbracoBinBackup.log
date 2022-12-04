@@ -1,0 +1,66 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : 04. prosinca 2022. 10:50:13
+   Source : C:\Users\mohor\Documents\GitHub\TIID\TIID\bin\
+     Dest : C:\Users\mohor\Documents\GitHub\TIID\TIID\App_Data\NuGetBackup\20221204-105013\bin\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                   0	C:\Users\mohor\Documents\GitHub\TIID\TIID\bin\
+	  New Dir         30	C:\Users\mohor\Documents\GitHub\TIID\TIID\bin\Debug\
+	    New File  		   4.7 m	EntityFramework.dll 10%   21%   31%   42%   52%   63%   73%   84%   94%  100%  
+	    New File  		  591752	EntityFramework.SqlServer.dll 44%   88%  100%  
+	    New File  		  163193	EntityFramework.SqlServer.xml 80%  100%  
+	    New File  		   3.5 m	EntityFramework.xml 14%   28%   42%   56%   70%   84%   98%  100%  
+	    New File  		  311808	GMap.NET.Core.dll 42%   84%  100%  
+	    New File  		  157696	GMap.NET.WindowsForms.dll 83%  100%  
+	    New File  		   56832	GMap.NET.WindowsPresentation.dll100%  
+	    New File  		  115712	Google.Maps.dll100%  
+	    New File  		  711952	Newtonsoft.Json.dll 36%   73%  100%  
+	    New File  		  713541	Newtonsoft.Json.xml 36%   73%  100%  
+	    New File  		   29696	OpenWeatherMap.dll100%  
+	    New File  		  222600	System.Data.SqlClient.dll 58%  100%  
+	    New File  		  443388	System.Data.SqlClient.xml 29%   59%   88%  100%  
+	    New File  		  393520	System.Data.SQLite.dll 33%   66%   99%  100%  
+	    New File  		  201528	System.Data.SQLite.EF6.dll 65%  100%  
+	    New File  		  201520	System.Data.SQLite.Linq.dll 65%  100%  
+	    New File  		   1.0 m	System.Data.SQLite.xml 23%   46%   70%   93%  100%  
+	    New File  		   14336	System.Device.Portable.dll100%  
+	    New File  		   18312	System.Security.Principal.Windows.dll100%  
+	    New File  		   90968	System.Security.Principal.Windows.xml100%  
+	    New File  		  183808	TIID.exe 71%  100%  
+	    New File  		    1897	TIID.exe.config100%  
+	    New File  		   73216	TIID.pdb100%  
+	    New File  		   20480	WeatherNet.dll100%  
+	    New File  		   10240	XPlat.Core.dll100%  
+	    New File  		   13764	XPlat.Core.xml100%  
+	    New File  		   11264	XPlat.Device.Geolocation.dll100%  
+	    New File  		   18808	XPlat.Device.Geolocation.xml100%  
+	    New File  		    8704	XPlat.Foundation.dll100%  
+	    New File  		    4536	XPlat.Foundation.xml100%  
+	  New Dir          1	C:\Users\mohor\Documents\GitHub\TIID\TIID\bin\Debug\x64\
+	    New File  		   1.6 m	SQLite.Interop.dll 14%   29%   44%   59%   74%   89%  100%  
+	  New Dir          1	C:\Users\mohor\Documents\GitHub\TIID\TIID\bin\Debug\x86\
+	    New File  		   1.3 m	SQLite.Interop.dll 19%   38%   57%   76%   95%  100%  
+	  New Dir          0	C:\Users\mohor\Documents\GitHub\TIID\TIID\bin\Release\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         5         4         1         0         0         0
+   Files :        32        32         0         0         0         0
+   Bytes :   16.95 m   16.95 m         0         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           206686081 Bytes/sec.
+   Speed :           11826.672 MegaBytes/min.
+   Ended : 04. prosinca 2022. 10:50:13
+
