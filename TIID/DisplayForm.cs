@@ -28,6 +28,9 @@ namespace TIID
         private int counter = 0;
         private List<Stanica> listaStanica;
         private List<PointLatLng> points;
+        GMarkerGoogle currentMarker;
+        GMapOverlay markersOverlay = new GMapOverlay("markers");
+
         public DisplayForm()
         {
             InitializeComponent();
@@ -39,19 +42,22 @@ namespace TIID
             watcher = new GeoCoordinateWatcher();
             watcher.Start();
 
+            currentMarker = null;
 
             map.MapProvider = GMapProviders.UMPMap;
 
             map.MinZoom = 5;
             map.MaxZoom = 100;
-            map.Zoom = 16;
+            map.Zoom = 15;
             map.Position = new GMap.NET.PointLatLng(0, 0);
+            map.ShowCenter = false;
 
 
             watcher.StatusChanged += StatusChangedEvent;
             watcher.PositionChanged += PositionChangedEvent;
+            FindRoute();
 
-            
+
         }
 
         private void FIllStanicaList()
@@ -135,6 +141,15 @@ namespace TIID
             {
                 throw;
             }
+            GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(currentLat, currentLon), GMarkerGoogleType.green_dot);
+            
+            if(currentMarker != null) markersOverlay.Markers.Remove(currentMarker);
+            markersOverlay.Markers.Add(marker);
+            currentMarker = marker;
+            
+            map.Overlays.Add(markersOverlay);
+
+
         }
         private void UpdateTime()
         {
@@ -173,40 +188,31 @@ namespace TIID
         }
         private void FindRoute()
         {
-
-            /*points = new List<PointLatLng>();
-            points.Add(new PointLatLng(43.5139, 16.4558));
-            points.Add(new PointLatLng(43.520677, 16.466721));
-
            
-            //var route = GoogleMapProvider.Instance.GetRoute(points[0], points[1], true, false, 14);
-            MapRoute route = GMap.NET.MapProviders.GoogleMapProvider.Instance.GetRoute(
-                points[0], points[1], false, false, 15);
-            GMapRoute r = new GMapRoute(route.Points, "Autobusna linija 11");
-            GMapOverlay routeOverlay = new GMapOverlay("routes");
-
-            routeOverlay.Routes.Add(r);
-            map.Overlays.Add(routeOverlay);
-            r.Stroke.Width = 2;
-            r.Stroke.Color = Color.Green;
-            */
-            //GMapOverlay markersOverlay = new GMapOverlay("markers");
             FillListOfMarkers();
             GMarkerGoogle marker;
 
             foreach(PointLatLng p in points)
             {
                 GMapOverlay markersOverlay = new GMapOverlay("markers");
-                marker = new GMarkerGoogle(p, GMarkerGoogleType.green_small);
+                marker = new GMarkerGoogle(p, GMarkerGoogleType.red_small);
                 markersOverlay.Markers.Add(marker);
                 map.Overlays.Add(markersOverlay);
             }
+            
+
+            MapRoute route = GoogleMapProvider.Instance.GetRoute(points[0], points[1], false, false, 15);
+            GMapRoute r = new GMapRoute(route.Points, "Autobusna linija 11");
+            r.Points.Add(points[2]);
+            GMapOverlay routeOverlay = new GMapOverlay("routes");
+
+            routeOverlay.Routes.Add(r);
+            map.Overlays.Add(routeOverlay);
+            r.Stroke.Width = 20;
+            r.Stroke.Color = Color.Green;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            FindRoute();
-        }
+        
         private void FillListOfMarkers()
         {
             points = new List<PointLatLng>();
