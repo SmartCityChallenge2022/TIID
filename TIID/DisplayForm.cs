@@ -40,7 +40,7 @@ namespace TIID
             watcher.Start();
 
 
-            map.MapProvider = GMapProviders.GoogleMap;
+            map.MapProvider = GMapProviders.UMPMap;
 
             map.MinZoom = 5;
             map.MaxZoom = 100;
@@ -193,22 +193,14 @@ namespace TIID
             //GMapOverlay markersOverlay = new GMapOverlay("markers");
             FillListOfMarkers();
             GMarkerGoogle marker;
-            GMarkerGoogle marker2;
-            int i = 0;
+
             foreach(PointLatLng p in points)
             {
                 GMapOverlay markersOverlay = new GMapOverlay("markers");
-                marker = new GMarkerGoogle(p, GMarkerGoogleType.blue_small);
+                marker = new GMarkerGoogle(p, GMarkerGoogleType.green_small);
                 markersOverlay.Markers.Add(marker);
                 map.Overlays.Add(markersOverlay);
-                MessageBox.Show(i.ToString());
-            }          
-            /*marker = new GMarkerGoogle(new PointLatLng(43.5139, 16.4558), GMarkerGoogleType.blue_small);
-            markersOverlay.Markers.Add(marker);
-            marker2 = new GMarkerGoogle(new PointLatLng(43.520677, 16.466721), GMarkerGoogleType.blue_small);
-            markersOverlay.Markers.Add(marker2);*/
-
-            
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -218,24 +210,9 @@ namespace TIID
         private void FillListOfMarkers()
         {
             points = new List<PointLatLng>();
-            points.Add(new PointLatLng(43.5139, 16.4558));
-            points.Add(new PointLatLng(43.520677, 16.466721));
-            /*points.Add(new PointLatLng(43.520677, 16.466721));
-            points.Add(new PointLatLng(43.520677, 16.466721));
-            points.Add(new PointLatLng(43.520677, 16.466721));
-            points.Add(new PointLatLng(43.520677, 16.466721));
-            points.Add(new PointLatLng(43.520677, 16.466721));
-            points.Add(new PointLatLng(43.520677, 16.466721));
-            points.Add(new PointLatLng(43.520677, 16.466721));
-            points.Add(new PointLatLng(43.520677, 16.466721));
-            points.Add(new PointLatLng(43.520677, 16.466721));
-            points.Add(new PointLatLng(43.520677, 16.466721));
-            points.Add(new PointLatLng(43.520677, 16.466721));
-            points.Add(new PointLatLng(43.520677, 16.466721));
-            points.Add(new PointLatLng(43.520677, 16.466721));
-            points.Add(new PointLatLng(43.520677, 16.466721));
-            points.Add(new PointLatLng(43.520677, 16.466721));
-            */
+            points.Add(new PointLatLng(43.515579, 16.429196));
+            points.Add(new PointLatLng(43.513706, 16.427912));
+            points.Add(new PointLatLng(43.513879, 16.425367));
         }
     }
 }
