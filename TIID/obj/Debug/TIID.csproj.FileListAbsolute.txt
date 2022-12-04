@@ -36,3 +36,5 @@ C:\Users\mohor\Documents\GitHub\TIID\TIID\bin\Debug\XPlat.Device.Geolocation.xml
 C:\Users\mohor\Documents\GitHub\TIID\TIID\bin\Debug\XPlat.Foundation.xml
 C:\Users\mohor\Documents\GitHub\TIID\TIID\bin\Debug\WeatherNet.dll
 C:\Users\mohor\Documents\GitHub\TIID\TIID\bin\Debug\OpenWeatherMap.dll
+C:\Users\mohor\Documents\GitHub\TIID\TIID\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mohor\Documents\GitHub\TIID\TIID\obj\Debug\TIID.exe.config

@@ -16,6 +16,7 @@ using Newtonsoft.Json;
 using static TIID.WeatherApiClass;
 using GMap.NET;
 using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
 
 namespace TIID
 {
@@ -39,21 +40,18 @@ namespace TIID
             watcher.Start();
 
 
-            map.MapProvider = GMapProviders.UMPMap;
+            map.MapProvider = GMapProviders.GoogleMap;
 
             map.MinZoom = 5;
             map.MaxZoom = 100;
-            map.Zoom = 15;
+            map.Zoom = 16;
             map.Position = new GMap.NET.PointLatLng(0, 0);
 
 
             watcher.StatusChanged += StatusChangedEvent;
             watcher.PositionChanged += PositionChangedEvent;
 
-            FindRoute();
-
             
-
         }
 
         private void FIllStanicaList()
@@ -129,6 +127,7 @@ namespace TIID
                         currentLat = watcher.Position.Location.Latitude;
                         currentLon = watcher.Position.Location.Longitude;
                         map.Position = new GMap.NET.PointLatLng(currentLat, currentLon);
+                        
                     }
                 }
             }
@@ -175,18 +174,68 @@ namespace TIID
         private void FindRoute()
         {
 
-            points = new List<PointLatLng>();
+            /*points = new List<PointLatLng>();
             points.Add(new PointLatLng(43.5139, 16.4558));
             points.Add(new PointLatLng(43.520677, 16.466721));
 
-            //MessageBox.Show(points[0].ToString());
+           
+            //var route = GoogleMapProvider.Instance.GetRoute(points[0], points[1], true, false, 14);
+            MapRoute route = GMap.NET.MapProviders.GoogleMapProvider.Instance.GetRoute(
+                points[0], points[1], false, false, 15);
+            GMapRoute r = new GMapRoute(route.Points, "Autobusna linija 11");
+            GMapOverlay routeOverlay = new GMapOverlay("routes");
 
-            var route = GoogleMapProvider.Instance.GetRoute(points[0], points[1], true, false, 14);
-            var r = new GMapRoute(route.Points, "Autobusna linija 11");
-            var routes = new GMapOverlay("routes");
+            routeOverlay.Routes.Add(r);
+            map.Overlays.Add(routeOverlay);
+            r.Stroke.Width = 2;
+            r.Stroke.Color = Color.Green;
+            */
+            //GMapOverlay markersOverlay = new GMapOverlay("markers");
+            FillListOfMarkers();
+            GMarkerGoogle marker;
+            GMarkerGoogle marker2;
+            int i = 0;
+            foreach(PointLatLng p in points)
+            {
+                GMapOverlay markersOverlay = new GMapOverlay("markers");
+                marker = new GMarkerGoogle(p, GMarkerGoogleType.blue_small);
+                markersOverlay.Markers.Add(marker);
+                map.Overlays.Add(markersOverlay);
+                MessageBox.Show(i.ToString());
+            }          
+            /*marker = new GMarkerGoogle(new PointLatLng(43.5139, 16.4558), GMarkerGoogleType.blue_small);
+            markersOverlay.Markers.Add(marker);
+            marker2 = new GMarkerGoogle(new PointLatLng(43.520677, 16.466721), GMarkerGoogleType.blue_small);
+            markersOverlay.Markers.Add(marker2);*/
 
-            routes.Routes.Add(r);
-            map.Overlays.Add(routes);
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FindRoute();
+        }
+        private void FillListOfMarkers()
+        {
+            points = new List<PointLatLng>();
+            points.Add(new PointLatLng(43.5139, 16.4558));
+            points.Add(new PointLatLng(43.520677, 16.466721));
+            /*points.Add(new PointLatLng(43.520677, 16.466721));
+            points.Add(new PointLatLng(43.520677, 16.466721));
+            points.Add(new PointLatLng(43.520677, 16.466721));
+            points.Add(new PointLatLng(43.520677, 16.466721));
+            points.Add(new PointLatLng(43.520677, 16.466721));
+            points.Add(new PointLatLng(43.520677, 16.466721));
+            points.Add(new PointLatLng(43.520677, 16.466721));
+            points.Add(new PointLatLng(43.520677, 16.466721));
+            points.Add(new PointLatLng(43.520677, 16.466721));
+            points.Add(new PointLatLng(43.520677, 16.466721));
+            points.Add(new PointLatLng(43.520677, 16.466721));
+            points.Add(new PointLatLng(43.520677, 16.466721));
+            points.Add(new PointLatLng(43.520677, 16.466721));
+            points.Add(new PointLatLng(43.520677, 16.466721));
+            points.Add(new PointLatLng(43.520677, 16.466721));
+            */
         }
     }
 }
