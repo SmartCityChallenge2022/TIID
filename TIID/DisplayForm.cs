@@ -198,7 +198,11 @@ namespace TIID
                 markersOverlay.Markers.Add(marker);
                 map.Overlays.Add(markersOverlay);
             }
-            
+            GMapOverlay markersOverlay2 = new GMapOverlay("markers");
+            marker = new GMarkerGoogle(new PointLatLng(43.516790, 16.429123), GMarkerGoogleType.blue);
+            markersOverlay.Markers.Add(marker);
+            map.Overlays.Add(markersOverlay2);
+
 
             var r = new GMapRoute(points, "Autobusna linija 11");
             /*var ru = GoogleMapProvider.Instance.GetRoute(points[0], points[5], true, false, 15);
