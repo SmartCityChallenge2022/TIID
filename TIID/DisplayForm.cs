@@ -201,16 +201,16 @@ namespace TIID
             
 
             var r = new GMapRoute(points, "Autobusna linija 11");
-            var ru = GoogleMapProvider.Instance.GetRoute(points[0], points[5], true, false, 15);
+            /*var ru = GoogleMapProvider.Instance.GetRoute(points[0], points[5], true, false, 15);
             var rut = new GMapRoute(ru.Points, "google ruta");
             rut.Stroke.Width = 2;
-            rut.Stroke.Color = Color.Yellow;
+            rut.Stroke.Color = Color.Yellow;*/
             GMapOverlay routeOverlay = new GMapOverlay("routes");
             r.Stroke.Width = 3;
             r.Stroke.Color = Color.Green;
 
             routeOverlay.Routes.Add(r);
-            routeOverlay.Routes.Add(rut); 
+            //routeOverlay.Routes.Add(rut); 
             map.Overlays.Add(routeOverlay);
             
         }
