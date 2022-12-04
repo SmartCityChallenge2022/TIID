@@ -149,8 +149,7 @@ namespace TIID
             
             map.Overlays.Add(markersOverlay);
 
-
-        }
+            }
         private void UpdateTime()
         {
             txtTime.Text = DateTime.Now.ToString();
@@ -201,27 +200,31 @@ namespace TIID
             }
             
 
-            MapRoute route = GoogleMapProvider.Instance.GetRoute(points[0], points[1], false, false, 15);
-            GMapRoute r = new GMapRoute(route.Points, "Autobusna linija 11");
-            r.Points.Add(points[2]);
+            var r = new GMapRoute(points, "Autobusna linija 11");
+            var ru = GoogleMapProvider.Instance.GetRoute(points[0], points[5], true, false, 15);
+            var rut = new GMapRoute(ru.Points, "google ruta");
+            rut.Stroke.Width = 2;
+            rut.Stroke.Color = Color.Yellow;
             GMapOverlay routeOverlay = new GMapOverlay("routes");
+            r.Stroke.Width = 3;
+            r.Stroke.Color = Color.Green;
 
             routeOverlay.Routes.Add(r);
+            routeOverlay.Routes.Add(rut); 
             map.Overlays.Add(routeOverlay);
-            r.Stroke.Width = 20;
-            r.Stroke.Color = Color.Green;
+            
         }
 
         
         private void FillListOfMarkers()
         {
             points = new List<PointLatLng>();
-            points.Add(new PointLatLng(43.515579, 16.429196));
-            points.Add(new PointLatLng(43.513706, 16.427912));
-            points.Add(new PointLatLng(43.513879, 16.425367));
-            points.Add(new PointLatLng(43.514420, 16.423235));
-            points.Add(new PointLatLng(43.517892, 16.432069));
-            points.Add(new PointLatLng(43.517345, 16.434718));
+            points.Add(new PointLatLng(43.514433, 16.423298));
+            points.Add(new PointLatLng(43.513903, 16.425337));
+            points.Add(new PointLatLng(43.513709, 16.427851));
+            points.Add(new PointLatLng(43.515672, 16.429323));
+            points.Add(new PointLatLng(43.518100, 16.432717));
+            points.Add(new PointLatLng(43.517641, 16.434599));
         }
     }
 }
