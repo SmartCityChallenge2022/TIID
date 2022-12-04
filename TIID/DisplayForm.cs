@@ -219,6 +219,9 @@ namespace TIID
             points.Add(new PointLatLng(43.515579, 16.429196));
             points.Add(new PointLatLng(43.513706, 16.427912));
             points.Add(new PointLatLng(43.513879, 16.425367));
+            points.Add(new PointLatLng(43.514420, 16.423235));
+            points.Add(new PointLatLng(43.517892, 16.432069));
+            points.Add(new PointLatLng(43.517345, 16.434718));
         }
     }
 }
