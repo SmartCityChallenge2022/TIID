@@ -164,7 +164,7 @@ namespace TIID
         {
             var http = new HttpClient();
 
-            var url = "https://api.openweathermap.org/data/2.5/weather?lat=" + currentLat + "&lon=" + currentLon + "&appid=e63e795d72e0ee742c4af3d081bc4c5d";
+            var url = "https://api.openweathermap.org/data/2.5/weather?lat=" + currentLat + "&lon=" + currentLon + "&appid=***********";
 
             http.DefaultRequestHeaders.Add(
                 "User-Agent",
